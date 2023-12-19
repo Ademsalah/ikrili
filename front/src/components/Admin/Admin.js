@@ -1,19 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Admin.css"
 import StadiumCards from './zidenkeryet/Cards/StadiumCards'
 import {useNavigate} from 'react-router-dom'
 import AjoutStadium from './zidenkeryet/AjoutStadium/AjoutStatdium'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { fetchCategorie } from '../../api/Cathegories/Cath'
+import { setCategorie } from '../../redux/categorieSlice'
 const Admin = ({auth,logout}) => {
-
+const dispatch = useDispatch()
   const authUser = useSelector(state=>state.auth)
-
+const categ = useSelector(state=>state.categorie)
   const navigate = useNavigate()
   console.log('nthbtou foil aut',authUser)
   const gotoaddstadiums = async()=>{
 
     navigate("/zidstadium")
   }
+
+
+const fetchcate=async()=>{
+  const data = await fetchCategorie()
+  console.log('data jib cat',data.getAll)
+  dispatch(setCategorie(data.getAll))
+
+}
+ useEffect(()=>{
+  fetchcate()
+ },[])
+console.log('sdfghjklsdfghjklsdfghjklsdfghjkl',categ)
+
+
+/* jiben produits  */
+
+
   return (
     <div className='bodyAdmin'>
     <header className="headerAdmin">
@@ -52,13 +72,7 @@ const Admin = ({auth,logout}) => {
       <div className="responsive-wrapper">
         <div lassName="main-header">
           <h1>ya Welcome </h1>
-{/*           lina search part 
- */}         {/*  <div className="search">
-            <input type="text" placeholder="Search" />
-            <button type="submit">
-              <i className="ph-magnifying-glass-bold" />
-            </button>
-          </div> */}
+
         </div>
         <div className="horizontal-tabs">
           <a href="#">My Stadiums</a>
@@ -92,17 +106,16 @@ const Admin = ({auth,logout}) => {
               <a href="#" className="active">
                 View all
               </a>
-              <a href="#">Developer tools</a>
-              <a href="#">Communication</a>
-              <a href="#">Productivity</a>
-              <a href="#">Browser tools</a>
-              <a href="#">Marketplace</a>
+              {
+                categ.map((el)=> (<a href={`/produit/${el._id}`}>{el.name}</a>))
+              }
+           
             </div>
           </div>
           <div className="content-main">
             <div className="card-grid">
-              <StadiumCards/>
-             
+{/*               <StadiumCards/>
+ */}             
             </div>
           </div>
         </div>

@@ -23,7 +23,4 @@ afra7rRoute.put('/updatysala/:id',Updateafra7)
 
 afra7rRoute.get('/jibsala/:id',GetById)
 
-
-
-
 module.exports = afra7rRoute

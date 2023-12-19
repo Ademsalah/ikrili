@@ -7,6 +7,8 @@ const userRoute = require ('./routes/routeuser')
 const stadiumRoute = require('./routes/stadiumRoute')
 const afra7rRoute = require('./routes/afra7Route')
 const meetingrRoute = require('./routes/meetingRoute')
+const categorieRoute = require('./routes/categories')
+const produitRoute = require('./routes/produit')
 require('dotenv').config()
 app.use(cors())
 app.use(express.json())
@@ -31,6 +33,10 @@ app.use('/saletAfra7',afra7rRoute)
 app.use('/meetingRoom',meetingrRoute)
 
 
+app.use('/categorie',categorieRoute)
+
+
+app.use('/produits',produitRoute)
 app.listen(port,err=>{
     err?console.log(err):console.log(`go port ${port} `)
 })
