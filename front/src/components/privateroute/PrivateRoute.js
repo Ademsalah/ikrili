@@ -30,18 +30,16 @@ const PrivateRoute = () => {
   },[])
 
 const token = localStorage.getItem('token')
-const logout=()=>{
-  localStorage.removeItem('token')
-  navigate('/login')
-}
+
+
+useEffect(()=>{
+  !token &&  navigate('/login') 
+},[token,authUser])
   return (
     <div>
-
-{token ? (<>
 {
-authUser.role === "admin" ?  <Admin auth={authUser} logout={logout} /> : <Client auth={authUser} logout={logout} /> 
-
-}</>):(<Login/>)}
+  (authUser.role === "admin" ? navigate('/admin') : navigate('/user'))
+}
  
     </div>
     

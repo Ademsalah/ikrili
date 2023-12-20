@@ -7,18 +7,18 @@ import axios from 'axios'
 }
 
 export const postCategorie = async(values)=>{
-    const addingProduct = await axios.post(`http://localhost:4000/categorie/addgategorie`,{...values})
+    const addingCategorie = await axios.post(`http://localhost:4000/categorie/addgategorie`,{...values})
 
 }
 
 export   const deletCategorie=async(id)=>{
     
-    const deletProduct = await axios.delete(`http://localhost:4000/categorie/remove/:idcategory/${id}`)
+    const deletCategorie = await axios.delete(`http://localhost:4000/categorie/remove/${id}`)
 
 }
 
 export const updateCategorie = async(id,value)=>{
-    const updatedProduct = await axios.put(`http://localhost:4000/produit/update/:idcate/${id}`,value)
+    const updatedCategorie = await axios.put(`http://localhost:4000/produit/update/:idcate/${id}`,value)
     
 }
 

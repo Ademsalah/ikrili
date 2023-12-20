@@ -1,17 +1,40 @@
-import React from 'react'
-import ListProduitsCard from './ListProduitsCard'
-import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
+import React, { useEffect } from "react";
+import ListProduitsCard from "./ListProduitsCard";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+/* import { fetchProduct } from "../../../../../api/pro/Product";
+ */ import { setproduct } from "../../../../../redux/productSlice";
+import axios from "axios";
 const ListProduits = () => {
-  const {idcate} = useParams()
-  const prod = useSelector(state=>state.product)
-  console.log("product",prod)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const produits = useSelector((state) => state.product);
+  console.log("produits", produits);
+  console.log("id", id);
+  const getproduit = async (id) => {
+    const data = await axios.get(
+      `http://localhost:4000/produits/jibproduit/${id}`
+    );
+    console.log("data lina", data.data.products);
+    dispatch(setproduct(data.data.products));
+  };
+  useEffect(() => {
+    getproduit(id);
+  }, [id]);
+  console.log("produitsproduitsproduits", produits);
   return (
-    <div>
-      <ListProduitsCard/>
+    <div className="card-grid">
+      <button>add something ?</button>
+      {produits.length <= 0
+        ? "pas de produits"
+        : produits.map((el) => (
+            <>
+              <ListProduitsCard el={el} />
+            </>
+          ))}
     </div>
-  )
-}
+  );
+};
 
-export default ListProduits
+export default ListProduits;

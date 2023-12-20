@@ -1,8 +1,18 @@
 import React from 'react'
 import './user.css'
 import Cartetna from './jibenhom/Cartetna'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 /*  import StadiumCards from '../Cards/StadiumCards'  */
-const Client = ({auth,logout}) => {
+const Client = () => {
+  const logout=()=>{
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
+  const authUser = useSelector(state=>state.auth)
+  console.log('nthbtou foil aut',authUser)
+  const navigate = useNavigate()
+
   return (
     <div className='bodyF'>
     {/*   <StadiumCards/> */}
@@ -33,7 +43,7 @@ const Client = ({auth,logout}) => {
       </div>
       <div className="app-header-actions">
         <button className="user-profile">
-          <span>{auth.name} {auth.lastName}</span>
+          <span>{authUser.name} {authUser.lastName}</span>
           <span  style={{height: "74px",width: "77px"}}  >
             <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
           </span>

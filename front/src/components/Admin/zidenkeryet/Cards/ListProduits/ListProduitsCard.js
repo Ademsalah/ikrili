@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const ListProduitsCard = () => {
+const ListProduitsCard = ({ el }) => {
   return (
     <div>
-      produiyte
+      <ul>
+        <li> {el.name} </li>
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default ListProduitsCard
+export default ListProduitsCard;
