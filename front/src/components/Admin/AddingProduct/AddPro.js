@@ -1,6 +1,6 @@
-/* import React, { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { postProduct } from '../../../api/Cathegories/Cath';
+import { postProduct } from '../../../api/pro/Product';
 import './AddPro.css';
 const AddPro = () => {
     const navigate=useNavigate()
@@ -15,17 +15,17 @@ const AddPro = () => {
         navigate('/admin')
     }
   return (
-    <div>
+    <div className='body-add'>
      
-  <div className="container">
-    <div className="cta-form">
+  <div className="container-add">
+    <div className="cta-form-add">
       <h2>add whatever u want</h2>
       <p>
         Check out the comments for line by line explanations. Form-related code
         starts on line 145.
       </p>
     </div>
-    <form action="" className="form">
+    <form action="" className="form-add">
       <input type="text"  placeholder="Name" className="form__input" id="name" />
       <label htmlFor="name" className="form__label">
         Name
@@ -65,7 +65,7 @@ const AddPro = () => {
               />
     </form>
   </div>
-  <div className="explanation"></div>
+  
   <section className="ButtonsContainer">
   <button onClick={()=>handleSubmit({name,price,postUrl,rating})} className="SigninButton">
                 ziiiid hbibi
@@ -76,4 +76,3 @@ const AddPro = () => {
 }
 
 export default AddPro
- */

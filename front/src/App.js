@@ -10,6 +10,7 @@ import AjoutStatdium from './components/Admin/zidenkeryet/AjoutStadium/AjoutStat
 import UpdateStadium from './components/Admin/zidenkeryet/UpdateStadium/UpdateStadium'
 import AddPro from './components/Admin/AddingProduct/AddPro';
 import ListProduits from './components/Admin/zidenkeryet/Cards/ListProduits/ListProduits';
+import AddCath from './components/Admin/AddCath/AddCath';
 function App() {
   return (
     <div >
@@ -21,20 +22,21 @@ function App() {
 
 
       <Route path='/produit/:id' element = {<Admin/>}>
-{/* <Route path="produit" element={<ListProduits/>}/>
- */}        </Route>
+       </Route>
 
 
     <Route path='/app/privateRoute' element = {<PrivateRoute/>}>
-{/*     <Route path="produit/:id" element={<ListProduits/>}/>
- */}      </Route> 
+     </Route> 
   
     <Route path='/zidstadium' element = {<AjoutStatdium/>}/> 
     <Route path='/zidstadium/:id' element = {<UpdateStadium/>}/> 
     <Route path='/adding' element = {<AddPro/>}/>
     <Route path='/adding' element = {<AddPro/>}/>
-
+    <Route path='/addCath' element = {<AddCath/>}  />
+    <Route path='/admin' element = {<Admin/>} />
+     <Route path='/jibproduit/:idcate'element={<ListProduits/>}/>
      </Routes>
+
 
 
     </div>

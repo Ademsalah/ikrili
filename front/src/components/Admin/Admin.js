@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import "./Admin.css"
-import StadiumCards from './zidenkeryet/Cards/StadiumCards'
+// import StadiumCards from './zidenkeryet/Cards/StadiumCards'
 import {useNavigate} from 'react-router-dom'
-import AjoutStadium from './zidenkeryet/AjoutStadium/AjoutStatdium'
+// import AjoutStadium from './zidenkeryet/AjoutStadium/AjoutStatdium'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchCategorie } from '../../api/Cathegories/Cath'
 import { setCategorie } from '../../redux/categorieSlice'
+
 const Admin = ({auth,logout}) => {
 const dispatch = useDispatch()
   const authUser = useSelector(state=>state.auth)
@@ -15,7 +16,10 @@ const categ = useSelector(state=>state.categorie)
   console.log('nthbtou foil aut',authUser)
   const gotoaddstadiums = async()=>{
 
-    navigate("/zidstadium")
+    navigate("/adding")
+  }
+  const gotoaddcath = async()=>{
+    navigate('/addCath')
   }
 
 
@@ -76,7 +80,7 @@ console.log('sdfghjklsdfghjklsdfghjklsdfghjkl',categ)
         </div>
         <div className="horizontal-tabs">
           <a href="#">My Stadiums</a>
-          <a href="#"  onClick={()=>gotoaddstadiums()}  >Add Stadiums </a>
+          <a href="#"  onClick={()=>gotoaddstadiums()}  >Add Product </a>
           <a href="#">view users </a>
           <a href="#">view reservations </a>
           <a href="#">Plan</a>
@@ -96,7 +100,7 @@ console.log('sdfghjklsdfghjklsdfghjklsdfghjkl',categ)
             </a>
             <a href="#" className="buttonAdmin">
               <i className="ph-plus-bold" />
-             <button >Addstadium</button>
+             <button onClick={()=>gotoaddcath()}>Add Cathegories</button>
             </a>
           </div>
         </div>
@@ -107,7 +111,7 @@ console.log('sdfghjklsdfghjklsdfghjklsdfghjkl',categ)
                 View all
               </a>
               {
-                categ.map((el)=> (<a href={`/produit/${el._id}`}>{el.name}</a>))
+                categ.map((el)=> (<a href={`/jibproduit/${el._id}`}>{el.name}</a>))
               }
            
             </div>

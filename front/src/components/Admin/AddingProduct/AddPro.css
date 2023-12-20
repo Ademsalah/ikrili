@@ -5,7 +5,7 @@ html {
     background-color: #edeee9;
  
 }
-html body {
+html .body-add {
     background-color: #edeee9;
     color: #303030;
     font-family: "Inter", sans-serif;
@@ -17,47 +17,47 @@ html body {
     justify-content: center;
     align-items: flex-start;
 }
-html body h1 {
+html .body-add h1 {
     font-size: clamp(1rem, 6vw, 10rem);
     margin: 15vh 0 2rem;
 }
-html body a {
+html .body-add a {
     text-decoration: underline;
     color: #303030;
 }
-html body code {
+html .body-add code {
     font-size: 1rem;
     padding: 0 0.5rem;
     background-color: #d8dbce;
 }
-html body .explanation {
+html .body-add .explanation {
     width: 100%;
     margin-bottom: 15vh;
 }
-html body .explanation p {
+html .body-add .explanation p {
     font-size: 1rem;
     max-width: 75ch;
     margin: 2rem 0;
 }
-html body .explanation ul:last-child {
+html .body-add .explanation ul:last-child {
     margin-bottom: 2rem;
 }
-html body .explanation ul {
+html .body-add .explanation ul {
     display: flex;
     flex-direction: column;
 }
-html body .explanation ul li {
+html .body-add .explanation ul li {
     list-style: none;
     position: relative;
     margin: 0.5rem 0;
 }
-html body .explanation ul li::before {
+html .body-add .explanation ul li::before {
     content: "👉";
     position: absolute;
     top: -0.25rem;
     left: -2rem;
 }
-html body .container {
+html body .container-add {
     width: 100%;
     max-width: 768px;
     display: flex;
@@ -73,18 +73,18 @@ html body .container {
         align-items: center;
    }
 }
-html body .container .cta-form {
+html body .container-add .cta-form-add {
     margin-bottom: 2rem;
     text-align: center;
 }
 @media (min-width: 768px) {
-    html body .container .cta-form {
+    html body .container-add .cta-form-add {
         margin-bottom: 0;
         margin-right: 2rem;
         text-align: left;
    }
 }
-html body .container .cta-form h2 {
+html body .container-add .cta-form-add h2 {
     font-size: 1.5rem;
     width: 100%;
     max-width: 25ch;
@@ -92,12 +92,12 @@ html body .container .cta-form h2 {
     text-align: center;
 }
 @media (min-width: 768px) {
-    html body .container .cta-form h2 {
+    html body .container-add .cta-form-add h2 {
         text-align: left;
         margin: 0;
    }
 }
-html body .container .cta-form p {
+html body .container-add .cta-form-add p {
     margin-top: 1rem;
     font-size: 1rem;
     width: 100%;

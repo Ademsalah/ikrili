@@ -7,7 +7,8 @@ const productSlice = createSlice({
             name:'redux',
             postUrl:'reduxUrl',
             rating:"3.5",
-            price:'963'
+            price:'963',
+            category:'657a3d20c1582728b4b8ff82'
          }],
     
 

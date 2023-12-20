@@ -22,7 +22,3 @@ export const updateCategorie = async(id,value)=>{
     
 }
 
-/* export const GetUniquePCategorie = async (id,value)=>{
-    const {data} = await axios.get(`http://localhost:4000/hettou/:idcategory${id}`,value)
-    return data
-} */
