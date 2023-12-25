@@ -11,6 +11,7 @@ produitRoute.get("/jibproduit/:idcate", async (req, res) => {
     const products = await produitsSchema
       .find({ category: req.params.idcate })
       .populate("category", "name");
+    const id = req.params.idcate;
     console.log("products", products);
     res.status(200).json({ msg: "voici les produits", products });
   } catch (err) {
@@ -46,12 +47,10 @@ produitRoute.put("/updateproduit/:productId/:categoriId", async (req, res) => {
       return res.status(404).json({ msg: "Product not found" });
     }
 
-    res
-      .status(200)
-      .json({
-        msg: "Product and category updated successfully",
-        updatedProduct,
-      });
+    res.status(200).json({
+      msg: "Product and category updated successfully",
+      updatedProduct,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ msg: "Internal Server Error" });
@@ -73,12 +72,10 @@ produitRoute.delete("/deleteproduit/:productId", async (req, res) => {
     // If you also want to delete the associated category, you can do it here
     // const deletedCategory = await categoriesSchema.findByIdAndDelete(deletedProduct.category);
 
-    res
-      .status(200)
-      .json({
-        msg: "Product deleted successfully",
-        deletedProduct /*, deletedCategory */,
-      });
+    res.status(200).json({
+      msg: "Product deleted successfully",
+      deletedProduct /*, deletedCategory */,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ msg: "Internal Server Error" });

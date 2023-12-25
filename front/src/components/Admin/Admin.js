@@ -122,7 +122,8 @@ const Admin = ({}) => {
                   <>
                     {" "}
                     <Link className="adding" to={`viewProduit/${el._id}`}>
-                      {el.name}{" "}
+                      {el.name}
+
                       <button
                         className="button-close"
                         onClick={() => handeldelete(el._id)}
