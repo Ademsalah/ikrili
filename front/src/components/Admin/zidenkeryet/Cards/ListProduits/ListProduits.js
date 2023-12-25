@@ -25,7 +25,7 @@ const ListProduits = () => {
   console.log("produitsproduitsproduits", produits);
   return (
     <div className="card-grid">
-      <button>add something ?</button>
+      <button onClick={() => navigate(`addProduit`)}>add something ?</button>
       {produits.length <= 0
         ? "pas de produits"
         : produits.map((el) => (

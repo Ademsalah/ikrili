@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Admin.css";
-import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deletCategorie, fetchCategorie } from "../../api/Cathegories/Cath";
 import { setCategorie } from "../../redux/categorieSlice";
