@@ -13,7 +13,7 @@ const Admin = ({}) => {
   console.log("nthbtou foil aut", authUser);
   const llogout = () => {
     dispatch(logout());
-    redirect("/login");
+    navigate("/login");
   };
   const gotoaddcath = async () => {
     navigate("/addCath");

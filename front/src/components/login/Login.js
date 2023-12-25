@@ -14,7 +14,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const notify = () => toast.success("sahyyt briw ");
-  const wrongPass = ()=> toast.error("8allet sahby")
+  const wrongPass = () => toast.error("8allet sahby");
   const handleLogin = async (values) => {
     try {
       if (!values.email || !values.email.includes("@")) {
@@ -32,13 +32,13 @@ const Login = () => {
       // navigate("/app/privateRoute");
       notify();
       if (res.data.user.role === "admin") {
-        redirect("/admin");
+        navigate("/admin");
       } else {
-        redirect("/user");
+        navigate("/user");
       }
     } catch (err) {
       console.log(err);
-      wrongPass()
+      wrongPass();
     }
   };
   return (

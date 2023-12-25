@@ -30,19 +30,16 @@ function App() {
         />
         <Route path="/app/privateRoute" element={<PrivateRoute />}></Route>
         {/* partie admin  */}
-        <Route path="/admin" element={isAuthenticated ? <Admin /> : <Login />}>
-          <Route path="viewProduit/:id" element={<ListProduits />} />
-          <Route path="addProduit" element={<AddPro />} />
-          <Route path="update/:idcat/:idProduit" element={<></>} />
-        </Route>
-        {/*       <Route path="/adding" element={<AddPro />} />
-         */}
+        {isAuthenticated && (
+          <Route path="/admin" element={<Admin />}>
+            <Route path="viewProduit/:id" element={<ListProduits />} />
+            <Route path="addProduit" element={<AddPro />} />
+            <Route path="update/:idcat/:idProduit" element={<></>} />
+          </Route>
+        )}
         <Route path="/addCath" element={<AddCath />} />
         {/* partie client  */}
-        <Route
-          path="/user"
-          element={isAuthenticated ? <Client /> : <Login />}
-        />
+        {isAuthenticated && <Route path="/user" element={<Client />} />}
       </Routes>
       <div>
         <Toaster />
