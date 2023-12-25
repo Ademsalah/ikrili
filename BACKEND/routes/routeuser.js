@@ -1,20 +1,21 @@
-const express = require('express')
+const express = require("express");
 
-const userRoute = express.Router()
+const userRoute = express.Router();
 
-const {register,login} = require('../controller/userControllers')
-const {isAuth} = require('../middelwares/isAuth')
-const {registerValidation,loginValidation,validation} = require('../middelwares/RegisterValidation')
+const { register, loginUser } = require("../controller/userControllers");
+const { isAuth } = require("../middelwares/isAuth");
+const {
+  registerValidation,
+  loginValidation,
+  validation,
+} = require("../middelwares/RegisterValidation");
 
-userRoute.post('/register',registerValidation,validation,register)
+userRoute.post("/register", registerValidation, validation, register);
 
+userRoute.post("/login", loginValidation, validation, loginUser);
 
-userRoute.post('/login',loginValidation,validation,login)
+userRoute.get("/me", isAuth, (req, res) => {
+  res.send(req.user);
+});
 
-userRoute.get('/me',isAuth,(req,res)=>{
-    res.send(req.user)
-    
-})
-
-
-module.exports = userRoute
+module.exports = userRoute;

@@ -1,173 +1,54 @@
-html {
-    position: relative;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    background-color: #edeee9;
- 
-}
-html .body-add {
-    background-color: #edeee9;
-    color: #303030;
-    font-family: "Inter", sans-serif;
-    min-height: 100vh;
-    width: 100%;
-    padding: 2.5vh 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-html .body-add h1 {
-    font-size: clamp(1rem, 6vw, 10rem);
-    margin: 15vh 0 2rem;
-}
-html .body-add a {
-    text-decoration: underline;
-    color: #303030;
-}
-html .body-add code {
-    font-size: 1rem;
-    padding: 0 0.5rem;
-    background-color: #d8dbce;
-}
-html .body-add .explanation {
-    width: 100%;
-    margin-bottom: 15vh;
-}
-html .body-add .explanation p {
-    font-size: 1rem;
-    max-width: 75ch;
-    margin: 2rem 0;
-}
-html .body-add .explanation ul:last-child {
-    margin-bottom: 2rem;
-}
-html .body-add .explanation ul {
-    display: flex;
-    flex-direction: column;
-}
-html .body-add .explanation ul li {
-    list-style: none;
-    position: relative;
-    margin: 0.5rem 0;
-}
-html .body-add .explanation ul li::before {
-    content: "👉";
-    position: absolute;
-    top: -0.25rem;
-    left: -2rem;
-}
-html body .container-add {
-    width: 100%;
-    max-width: 768px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 2rem 1.5rem;
-    background-color: #d8dbce;
-}
-@media (min-width: 768px) {
-    html body .container {
-        flex-direction: row;
-        align-items: center;
-   }
-}
-html body .container-add .cta-form-add {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-@media (min-width: 768px) {
-    html body .container-add .cta-form-add {
-        margin-bottom: 0;
-        margin-right: 2rem;
-        text-align: left;
-   }
-}
-html body .container-add .cta-form-add h2 {
-    font-size: 1.5rem;
-    width: 100%;
-    max-width: 25ch;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+
+.survey-form {
+    max-width: 500px;
+    min-width: 350px;
     margin: 0 auto;
-    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
-@media (min-width: 768px) {
-    html body .container-add .cta-form-add h2 {
-        text-align: left;
-        margin: 0;
-   }
-}
-html body .container-add .cta-form-add p {
-    margin-top: 1rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 24ch;
-}
- .form {
-    align-self: center;
-}
-.ButtonsContainer .SignInButtonContainer .SigninButton:hover{
-    background-color: #2863b4;
-}
+  
 
-.ButtonsContainer .SignInButtonContainer .SigninButton{
+  
+.form-group {
+    margin-bottom: 20px;
+}
+  
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+input[type="text"],
+input[type="string"],
+textarea {
     width: 100%;
-    background-color: #2d70ce;
-    color: white;
-    border-radius: 10px;
-    border: 0px;
     padding: 10px;
-    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+input[type="range"] {
+    width: 100%;
+}
+  
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #11104e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
+  
 
-.ButtonsContainer .OthersButtonContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
+  
+.attribute{
+    position: absolute;
+    bottom: 10px;
 }
-
-.ButtonsContainer .OthersButtonContainer button{
-    width: 48%;
-    font-size: 15px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 7px;
-    border: 0px;
-}
-
-   
-      
-    
-    
-    html::placeholder {
-        display: none;
-        color: transparent;
-        -webkit-user-select: none;
-    
-        -ms-user-select: none;
-     
-        user-select: none;
-   
-   }
-    html:not(:placeholder-shown) {
-        border-top-color: rgba(0, 0, 0, 0.5);
-   }
-    .form__label {
-        font-size: 1rem;
-        display: block;
-     
-        transform: translate(1.25rem, -2.5rem);
-        transform-origin: 0 0;
-       
-        transition: all 500ms;
-        -webkit-user-select: none;
-       
-        -ms-user-select: none;
-      
-        user-select: none;
-       
-        pointer-events: none;
-   }
-    

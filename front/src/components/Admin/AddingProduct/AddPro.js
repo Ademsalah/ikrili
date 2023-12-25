@@ -15,70 +15,54 @@ const AddPro = () => {
     navigate("/admin");
   };
   return (
-    <div className="body-add">
-      <div className="container-add">
-        <div className="cta-form-add">
-          <h2>add whatever u want</h2>
-          <p>
-            Check out the comments for line by line explanations. Form-related
-            code starts on line 145.
-          </p>
-        </div>
-        <form action="" className="form-add">
-          <input
-            type="text"
-            placeholder="Name"
-            className="form__input"
-            id="name"
-          />
-          <label htmlFor="name" className="form__label">
-            Name
-          </label>
-          <input
-            className="input"
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-          <label htmlFor="email" className="form__label">
-            price
-          </label>
-          <input
-            className="input"
-            type="text"
-            onChange={(e) => setPrice(e.target.value)}
-            value={price}
-          />
-          <label htmlFor="email" className="form__label">
-            postUrl
-          </label>
-          <input
-            className="input"
-            type="text"
-            onChange={(e) => setPostUrl(e.target.value)}
-            value={postUrl}
-          />
-          <label htmlFor="subject" className="form__label">
-            rating
-          </label>
-          <input
-            className="input"
-            type="text"
-            onChange={(e) => setRating(e.target.value)}
-            value={rating}
-          />
-        </form>
+    <form className="survey-form">
+      <div className="form-group">
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required=""
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
-
-      <section className="ButtonsContainer">
-        <button
-          onClick={() => handleSubmit({ name, price, postUrl, rating })}
-          className="SigninButton"
-        >
-          ziiiid hbibi
-        </button>
-      </section>
-    </div>
+      <div className="form-group">
+        <label>Price:</label>
+        <input
+          type="string"
+          id="price"
+          name="price"
+          required=""
+          onChange={(e) => setPrice(e.target.value)}
+        />
+      </div>
+      <label className="form-group">postUrl</label>
+      <input
+        className="input"
+        type="text"
+        onChange={(e) => setPostUrl(e.target.value)}
+        value={postUrl}
+      />
+      <div className="form-group">
+        <label htmlFor="rating">Rating:</label>
+        <input
+          type="range"
+          id="rating"
+          name="rating"
+          min={1}
+          max={5}
+          step={1}
+          required=""
+          onChange={(e) => setRating(e.target.value)}
+        />
+      </div>
+      <button
+        type="submit"
+        onClick={() => handleSubmit({ name, price, postUrl, rating })}
+      >
+        Zyyyyd hbibi
+      </button>
+    </form>
   );
 };
 

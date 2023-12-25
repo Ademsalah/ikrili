@@ -11,7 +11,12 @@ import AddPro from "./components/Admin/AddingProduct/AddPro";
 import ListProduits from "./components/Admin/zidenkeryet/Cards/ListProduits/ListProduits";
 import AddCath from "./components/Admin/AddCath/AddCath";
 import Client from "./components/User/Client";
+import toast, { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
 function App() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+  console.log(isAuthenticated, user);
   return (
     <div>
       <Routes>
@@ -19,22 +24,30 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/dorra" element={<Dorra />} />
         <Route path="/register" element={<Register2 />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={isAuthenticated ? <Admin /> : <Login />}
+        />
         <Route path="/app/privateRoute" element={<PrivateRoute />}></Route>
         {/* partie admin  */}
-        <Route path="/admin" element={<Admin />}>
+        <Route path="/admin" element={isAuthenticated ? <Admin /> : <Login />}>
           <Route path="viewProduit/:id" element={<ListProduits />} />
           <Route path="addProduit" element={<AddPro />} />
           <Route path="update/:idcat/:idProduit" element={<></>} />
         </Route>
         {/*       <Route path="/adding" element={<AddPro />} />
-         */}{" "}
+         */}
         <Route path="/addCath" element={<AddCath />} />
         {/* partie client  */}
-        <Route path="/user" element={<Client />} />
+        <Route
+          path="/user"
+          element={isAuthenticated ? <Client /> : <Login />}
+        />
       </Routes>
+      <div>
+        <Toaster />
+      </div>
     </div>
   );
 }
-
 export default App;

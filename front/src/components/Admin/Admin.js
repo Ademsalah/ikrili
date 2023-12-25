@@ -1,27 +1,20 @@
 import React, { useEffect } from "react";
 import "./Admin.css";
-// import StadiumCards from './zidenkeryet/Cards/StadiumCards'
-import { Link, Outlet, useNavigate } from "react-router-dom";
-// import AjoutStadium from './zidenkeryet/AjoutStadium/AjoutStatdium'
+import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { deletCategorie, fetchCategorie } from "../../api/Cathegories/Cath";
 import { setCategorie } from "../../redux/categorieSlice";
-import { fetchAuthUser } from "../../api/authuser";
-import { setAuth } from "../../redux/authSlice";
-
+import { logout } from "../../redux/action/authaction";
 const Admin = ({}) => {
   const dispatch = useDispatch();
-
   const authUser = useSelector((state) => state.auth);
   const categ = useSelector((state) => state.categorie);
   const navigate = useNavigate();
   console.log("nthbtou foil aut", authUser);
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
+  const llogout = () => {
+    dispatch(logout());
+    redirect("/login");
   };
-
   const gotoaddcath = async () => {
     navigate("/addCath");
   };
@@ -36,16 +29,13 @@ const Admin = ({}) => {
   useEffect(() => {
     fetchcate();
   }, []);
-
   /* partie tfesegh hekel categoryet */
   const handeldelete = async (id) => {
     await deletCategorie(id);
     await alert("hawka tfeskh rte7et minou XD");
     navigate("/admin");
   };
-
   /* jiben produits  */
-
   return (
     <div className="bodyAdmin">
       <header className="headerAdmin">
@@ -65,9 +55,8 @@ const Admin = ({}) => {
             <div className="header-navigation-actions">
               <a href="#" className="buttonAdmin">
                 <i className="ph-lightning-bold" />
-                <span onClick={() => logout()}>Logout </span>
+                <span onClick={() => llogout()}>Logout </span>
               </a>
-
               <a href="#" className="avatar">
                 <img
                   src="https://assets.codepen.io/285131/hat-man.png"
@@ -89,7 +78,6 @@ const Admin = ({}) => {
           </div>
           <div className="horizontal-tabs">
             <a href="#">My Stadiums</a>
-
             <a href="#">view users </a>
             <a href="#">view reservations </a>
             <a href="#">Plan</a>
@@ -106,14 +94,22 @@ const Admin = ({}) => {
                 <i className="ph-faders-bold" />
                 <span>Filters</span>
               </a>
-              <a href="#" className="buttonAdmin">
-                <i className="ph-plus-bold" />
-                <button onClick={() => gotoaddcath()}>Add Cathegories</button>
-              </a>
-              <a href="#" className="buttonAdmin">
-                <i className="ph-plus-bold" />
-                <button onClick={() => gotoaddprod()}>Add produiyet</button>
-              </a>
+              {/*  <a href="#" className="buttonAdmin"> */}
+              <div className="button-container">
+                <div className="btn-add-cath">
+                  <div className="shop-now" onClick={() => gotoaddcath()}>
+                    Add Cathegories
+                  </div>
+                </div>
+                {/*  </a> */}
+                {/*  <a href="#" className="buttonAdmin"> */}
+                <div className="btn-add-cath">
+                  <div className="shop-now" onClick={() => gotoaddprod()}>
+                    Add produiyet
+                  </div>
+                </div>
+                {/*  </a> */}
+              </div>
             </div>
           </div>
           <div className="content">
@@ -125,8 +121,13 @@ const Admin = ({}) => {
                 {categ.map((el) => (
                   <>
                     {" "}
-                    <Link to={`viewProduit/${el._id}`}>({el.name} ) </Link>{" "}
-                    <button onClick={() => handeldelete(el._id)}>X</button>
+                    <Link className="adding" to={`viewProduit/${el._id}`}>
+                      {el.name}{" "}
+                      <button
+                        className="button-close"
+                        onClick={() => handeldelete(el._id)}
+                      ></button>
+                    </Link>
                   </>
                 ))}
               </div>
