@@ -5,6 +5,7 @@ import PrivateRoute from "./components/privateroute/PrivateRoute";
 import Register2 from "./components/register/Register2";
 import Dorra from "./components/Dorra/Dorra";
 import Admin from "./components/Admin/Admin";
+import AppVisitPage from "./components/VisitPage/AppVisitPage";
 // import AjoutStatdium from './components/Admin/zidenkeryet/AjoutStadium/AjoutStatdium';
 // import UpdateStadium from './components/Admin/zidenkeryet/UpdateStadium/UpdateStadium'
 import AddPro from "./components/Admin/AddingProduct/AddPro";
@@ -21,7 +22,8 @@ function App() {
     <div>
       <Routes>
         {/* partie genrale  */}
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<AppVisitPage />} />
         <Route path="/dorra" element={<Dorra />} />
         <Route path="/register" element={<Register2 />} />
         <Route
